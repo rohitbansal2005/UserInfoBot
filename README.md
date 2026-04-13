@@ -59,3 +59,34 @@ There's a small client-only demo included: `index.html`.
 - The demo persists the unlocked state in `localStorage` so the second button stays visible on reload. Use the Reset button to clear the state while testing.
 
 This is a pure front-end flow (no server) to match the requested behaviour.
+
+## Deploying to Render (recommended config)
+
+If you want to run the project on Render (https://render.com), use these settings.
+
+- Build command:
+
+```bash
+pip install -r requirements.txt
+```
+
+- Start command (Web Service for `server.py` — use gunicorn):
+
+```bash
+gunicorn server:app --bind 0.0.0.0:$PORT
+```
+
+- Start command (Background Worker for `bot.py` — separate service):
+
+```bash
+python bot.py
+```
+
+Notes:
+- Add two services on Render if you want both the HTTP verification UI (`server.py`) and the Telegram bot to run: a Web Service (gunicorn) and a Background Worker (bot.py).
+- Required environment variables on Render:
+	- `TELEGRAM_BOT_TOKEN` — your bot token
+	- `ADMIN_TELEGRAM_ID` — optional admin chat id
+	- `ZOKTU_BASE_URL` — optional base URL if you host the auth flow
+- Ensure `requirements.txt` contains `Flask` and `gunicorn` (already included).
+

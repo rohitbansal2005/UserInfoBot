@@ -152,5 +152,8 @@ def get_session(session_id: str):
 
 
 if __name__ == "__main__":
-    # For demo purposes only. Use a proper server behind HTTPS in production.
-    app.run(host="0.0.0.0", port=5000, debug=True)
+  # For demo purposes only. In production use a WSGI server (gunicorn) and set PORT via environment.
+  port = int(os.environ.get("PORT", 5000))
+  debug_env = os.environ.get("FLASK_DEBUG", "false").lower()
+  debug = debug_env in ("1", "true", "yes")
+  app.run(host="0.0.0.0", port=port, debug=debug)
