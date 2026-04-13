@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv.bak/
+
+# Pipenv
+Pipfile.lock
+
+# Pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.pytype/
+
+# PEP 582; used by e.g. python -m pipx
+__pypackages__/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs and reports
+*.log
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Local config / secrets
+.env
+.env.*
+*.secret
+secrets.*
+
+# Project specific
+sessions.json
+index.html
